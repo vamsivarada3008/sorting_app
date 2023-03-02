@@ -530,12 +530,10 @@ List<int> selectionSort(List<int> list) {
 List<int> heapSort(List<int> list) {
   int n = list.length;
 
-  // Build a max heap from the input array
   for (int i = (n ~/ 2) - 1; i >= 0; i--) {
     heapify(list, n, i);
   }
 
-  // Extract the maximum element from the heap and add it to the sorted array
   for (int i = n - 1; i >= 0; i--) {
     int temp = list[0];
     list[0] = list[i];
@@ -569,10 +567,8 @@ void heapify(List<int> list, int n, int i) {
 }
 
 List<int> radixSort(List<int> list) {
-  // Find the maximum element in the input array
   int maxElement = list.reduce((a, b) => a > b ? a : b);
 
-  // Sort the input array one digit at a time
   for (int exp = 1; maxElement ~/ exp > 0; exp *= 10) {
     list = countingSort(list, exp);
   }
